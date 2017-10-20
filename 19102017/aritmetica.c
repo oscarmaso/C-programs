@@ -3,7 +3,8 @@
 
  int main ()
 {
-	int a, b, c, d;
+	int a, b, c, d, e, f;
+	
 	printf ("Primer numero: ");
 	scanf("%d", &a);
 	
@@ -11,10 +12,16 @@
 	scanf("%d", &b);
 	
 	c = a + b;
-	d = a * b;
+	d = a - b;
+	e = a * b;
+	f = a / b;
+	
 
 	printf ("La suma es: %d\n", c);
-	printf ("la multiplacion es: %d\n", d);
+	printf ("La resta es: %d\n", d);
+	printf ("La multiplacion es: %d\n", e);
+	printf ("La division es: %d\n", f);
+
 	
 	system("pause");
 	return 0;
