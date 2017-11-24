@@ -9,19 +9,17 @@ int main ( )
 	char correo[30];
 
 	printf ("\n Escriba su nombre: ");
-	scanf ("%s", nombre);
+	scanf (" %s", nombre);
 	printf ("\n Escribe tu correo electronico:");
-	scanf ("%s",correo);
+	scanf (" %s",correo);
 	printf ("\n Escriba la contraseña de %s: ", nombre);
-	scanf ("%s", password);
+	scanf (" %s", password);
 	printf("\n");
 
 	printf ("Su nombre es: %s ", nombre);
 	printf("\n");
-	
 	printf("Su correo es: %s ",correo);
 	printf("\n");
-	
 	printf ("Tu contraseña es: %s ", password);
 	printf ("\n");
 

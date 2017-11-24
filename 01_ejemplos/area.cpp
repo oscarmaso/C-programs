@@ -3,9 +3,9 @@
 
 int main(){
 
-    int lado,
-        area,
-        perimetro;
+    double lado;
+    double area;
+    double perimetro;
 
     system("toilet --gay -fpagga CUADRADO");
 
