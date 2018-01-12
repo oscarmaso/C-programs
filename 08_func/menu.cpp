@@ -14,7 +14,6 @@ void menu (void){
 
 int main(){
     menu(&opcion);
-  
 
   printf("La opcion: \n ");
   scanf(" %i", opcion);
