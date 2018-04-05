@@ -1,0 +1,33 @@
+*how to run
++ get gcc (might not need to)
++ get ncurses (again might not need to)
++ stick this folder in your home folder
++ do these in the terminal to compile (you probably wont need to do these)
+
+cd /home/<your name>/ncursesgame/files
+gcc -o buildinggame buildinggame.cpp.cpp -lncurses
+cd /home/<yourname>/ncursesgame
+make GAMESTART
+
++ then to run double click "GAMESTART" (you can put the GAMESTART file anywhere on your computer)
+
+*controls
++ 'b' and 'v' to scroll through block menu
++ space bar to place block
++ wasd to delete items relative to you (ex: 'w' to delete item above u)
++ arrow keys to move
++ 'r' to reset to pos (0,0) if you get stuck
++ 't' and 'g' to cycle through menu
++ enter button to excecute menu command
+
+*bugs
++ you can get stuck in '#' blocks. press and hold 'r' to get out
++ menu is a bit glitchy. every time after starting the game or using an item on the menu, move the menu cursor about 3 times for it to straighten out :) IF YOU DONT YOU CAN EASILY DELETE YOUR SAVE ON ACCIDENT!!!
+
+*things to be added soon
++ a menu item to reset your amount of stars
++ a file to save your amount of stars when you save your world (should be easy but i dont really want to :/ )
++ change the '[' and ']' to something else because it is hard to use for some reason with the new block chooser (maybe give me an idea of what it should be?)
+
+COPYRIGHT:
+made by tyler songer, aka gopro_2027. you can play this game freely and edit it if you please but dont go saying you made it :P

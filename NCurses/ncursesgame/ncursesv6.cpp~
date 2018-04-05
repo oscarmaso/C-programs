@@ -1,0 +1,194 @@
+/*
+ *Notes might be a bit scattered or maybe wrong to some extent* 
+
+ how to play:
+ #start game in full terminal. it will look funny is u dont
+ #use arrow keys to move
+ #press 'o' to place barrier
+ #to delete barrier piece stand by it ans press w,a,s,d. ex: stand under the barrer u wanna delete and press w
+ #if you get stuck in a barrier and cant move (this is a bug) press 'r' to go to (0,0)
+ #press 'q' to end the game
+ #to save the game u are on, while in the terminal copy all the blue area. now go make a copy of this file here. see that big open space printw? well u need to replace all the stuff it is printing with the screen u copied. then put \n after every 'o' and it should work
+*/
+#include <curses.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <term.h>
+int main()
+{ 
+initscr();
+start_color();//says we can have color(personal note)
+noecho();//keeps from pressing other characters(personal note)
+cbreak();
+nodelay(stdscr, TRUE);
+keypad(stdscr, TRUE);
+init_pair(1, COLOR_RED, COLOR_CYAN);
+attron(COLOR_PAIR(1));
+system("resize -s 34 116");
+for( ; ; ) {
+int s;
+s = s+0;
+if (s==0) {
+  #include "/home/ty/ncursesgame/files/intro.cpp"
+  s=2;
+}
+if (s==1) {
+  scr_restore("/home/ty/ncursesgame/world.dump");
+  doupdate();
+  refresh();
+  s=2;
+}
+char readch = inch();
+int y, x, stars, stars1, r;
+int ch = getch();
+switch (ch) {
+  case KEY_DOWN:
+    getyx(stdscr , y, x);
+    move(y+1,x);
+    refresh();
+    getch();
+  }
+switch (ch) {
+  case KEY_UP:
+    getyx(stdscr , y, x);
+    move(y-1,x);
+    refresh();
+    getch();
+  }
+switch (ch) {
+  case KEY_LEFT:
+    getyx(stdscr , y, x);
+    move(y,x-1);
+    refresh();
+    getch();
+  }
+switch (ch) {
+  case KEY_RIGHT:
+    getyx(stdscr , y, x);
+    move(y , x+1 );
+    refresh();
+    getch();
+  }
+  if(ch=='1') {
+    printw("#");
+    refresh();
+  }
+  if(ch=='2') {
+    printw("/");
+    refresh();
+  }
+  if(ch=='3') {
+    printw("[");
+    refresh();
+  }
+  if(ch=='4') {
+    printw("]");
+    refresh();
+  }
+  if(ch=='5') {
+    printw("&");
+    refresh();
+  }
+  if(ch=='k') {
+    scr_dump("/home/ty/ncursesgame/world.dump");
+  }
+  if(ch=='l') {
+    s=1;
+  }
+  if(ch=='w') {
+    readch=='b';
+    getyx(stdscr,y,x);
+    move(y-1,x);
+    printw(" ");
+    getyx(stdscr,y,x);
+    move(y+1,x-1);
+    refresh();
+  }                 
+  if(ch=='a') {
+    readch=='b';
+    getyx(stdscr,y,x);
+    move(y,x-1);
+    printw(" ");
+    getyx(stdscr,y,x);
+    move(y,x);
+    refresh();
+  }
+  if(ch=='s') {
+    readch=='b';
+    getyx(stdscr,y,x);
+    move(y+1,x);
+    printw(" ");
+    getyx(stdscr,y,x);
+    move(y-1,x-1);
+    refresh();
+  }
+  if(ch=='d') {
+    readch=='b';
+    getyx(stdscr,y,x);
+    move(y,x+1);
+    printw(" ");
+    getyx(stdscr,y,x);
+    move(y,x-2);
+    refresh();
+  }
+  if(ch=='q') {
+    endwin();
+    return 0;
+  }
+  if (readch=='#') {
+    move(y,x);
+    refresh();
+    getch();
+  }
+  if (ch=='r') {
+    move(0,0);
+    refresh();
+  }
+  if (ch=='j') {
+    #include "/home/ty/ncursesgame/files/new.cpp"
+    refresh();
+  }
+  {
+  if (readch=='&') {
+    printw(" ");
+    move(0,0);
+    printw("Hello There!");
+    refresh();
+    sleep(2);
+    move(0,0);
+    printw("Would you ike some pie? y/n");
+    }
+  if (ch=='y') {
+    move(0,0);
+    printw("                           ");
+    move(0,0);
+    printw("Yay! You get gold star!");
+    stars=stars+1;
+    move(32,0);
+    printw("gold stars: %d", stars);
+    refresh();
+    sleep(2);
+    move(0,0);
+    printw("                       ");
+    move(y,x);
+    refresh();
+    getch();
+    }
+  if (ch=='n') {
+    move(0,0);
+    printw("                           ");
+    move(0,0);
+    printw(":( you dont like my pie...");
+    refresh();
+    sleep(2);
+    move(0,0);
+    printw("                          ");
+    refresh();
+    move(y,x);
+    refresh();
+    getch();
+    }
+  } 
+  }
+}

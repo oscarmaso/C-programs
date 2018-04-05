@@ -1,0 +1,11 @@
+#include <curses.h>//-e
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <term.h>
+int main()
+{ 
+chdir("/home/user/ncursesgame/files/");
+system( "gcc -o ncursesv6 ncursesv6.cpp -lncurses");
+system( "gnome-terminal -e ./ncursesv6" );
+}
