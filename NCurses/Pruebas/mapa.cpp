@@ -3,9 +3,8 @@
 
 #define Y 10
 #define X 40
-int main(){
 
-    initscr();
+void pintarmapa(){
 
     for (int  f = 0; f<=Y; f++){
         for (int c = 0; c<=X; c++)
@@ -21,6 +20,12 @@ int main(){
                     printw("\n");
         }
     }
+ 
+
+}
+int main(){
+
+    initscr();
     refresh();
     getch();
     endwin();
